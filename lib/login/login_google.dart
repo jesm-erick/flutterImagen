@@ -1,8 +1,10 @@
 //import 'package:app_upeu/apis/api_beneficiario.dart';
+import 'package:app_upeu/apis/persona_api.dart';
 import 'package:app_upeu/comp/Button.dart';
 import 'package:app_upeu/comp/TextInput.dart';
 import 'package:app_upeu/drawer/navigation_home_screen.dart';
 import 'package:app_upeu/login/sign_in.dart';
+import 'package:app_upeu/modelo/UsuarioModel.dart';
 //import 'package:app_upeu/modelo/usuario_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,18 +15,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MainLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.blue),
-        home: LoginPage());
-    /*
-    return Provider<BeneficiarioApi>(create: (_)=>BeneficiarioApi.create(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.blue),
-        home: LoginPage(),
-
-    );*/
+    // return MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     theme: ThemeData(primaryColor: Colors.blue),
+    //     home: LoginPage());
+    return Provider<PersonaApi>(
+        create: (_) => PersonaApi.create(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(primaryColor: Colors.blue),
+          home: LoginPage(),
+        ));
   }
 }
 
@@ -54,7 +55,8 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image(
-                  image: NetworkImage("https://i.pinimg.com/736x/87/5c/37/875c3737563af22174cfa26fe9e8510f.jpg"),
+                  image: NetworkImage(
+                      "https://i.pinimg.com/736x/87/5c/37/875c3737563af22174cfa26fe9e8510f.jpg"),
                   height: 200.0),
               //FlutterLogo(size: 150),
               SizedBox(height: 20),
@@ -91,8 +93,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Button(
                 label: 'Ingresar',
-                onTap:(){}
-/*  
                 onTap: () async {
                   WidgetsFlutterBinding.ensureInitialized();
                   Firebase.initializeApp();
@@ -102,33 +102,31 @@ class _LoginPageState extends State<LoginPage> {
                         "Usuario: ${_controllerUser.text}  clave:${_controllerPass.text}");
                     final prefs = await SharedPreferences.getInstance();
 
-                    final api =
-                        Provider.of<BeneficiarioApi>(context, listen: false);
-                    final user = UsuarioModel();
-                    user.username = _controllerUser.text;
+                    final api = Provider.of<PersonaApi>(context, listen: false);
+                    final user = UsuarioModelo();
+                    user.email = _controllerUser.text;
                     user.password = _controllerPass.text;
                     bool ingreso = false;
-                    api.login(user).then((value) {
-                      token = "JWT " + value.access_token;
-                      prefs.setString("token", token);
-                      ingreso = true;
-                      print("Aqui llego");
-                      print(token);
-                      if (ingreso == true) {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return NavigationHomeScreen();
-                            },
-                          ),
-                        );
-                      }
-                    }).catchError((onError) {
-                      print(onError.toString());
-                    });
+                    var onichan = await api.login(user);
+                    print('hola ${onichan.data}');
+                    // token = value.data;
+                    // prefs.setString("token", token);
+                    ingreso = true;
+                    // print("Aqui llego");
+                    // print(token);
+                    if (ingreso == true) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return NavigationHomeScreen();
+                          },
+                        ),
+                      );
+                    }
+                    ;
                   }
                 },
-              */),
+              ),
             ],
           ),
         ));
@@ -177,8 +175,8 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image(
-                image:
-                NetworkImage("https://static.vecteezy.com/system/resources/previews/007/407/996/original/user-icon-person-icon-client-symbol-login-head-sign-icon-design-vector.jpg"),
+                image: NetworkImage(
+                    "https://static.vecteezy.com/system/resources/previews/007/407/996/original/user-icon-person-icon-client-symbol-login-head-sign-icon-design-vector.jpg"),
                 //AssetImage('assets/imagen/man-icon.png'),
                 height: 35.0),
             Padding(

@@ -10,13 +10,16 @@ class _PersonaApi implements PersonaApi {
   @override
   login(user) async {
     ArgumentError.checkNotNull(user, "user");
+    print("hola");
     print("ver: ${user.toJson()}");
+
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
+
     _data.addAll(user.toJson() ?? <String, dynamic>{});
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/auth/login',
+        '/apiv1/auth/login',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',

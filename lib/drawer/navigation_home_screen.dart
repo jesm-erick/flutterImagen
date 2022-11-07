@@ -4,6 +4,7 @@ import 'package:app_upeu/drawer/drawer_user_controller.dart';
 import 'package:app_upeu/drawer/home_drawer.dart';
 //import 'package:app_upeu/ui/beneficiario/beneficiario_main.dart';
 import 'package:app_upeu/ui/help_screen.dart';
+import 'package:app_upeu/ui/persona/persona_main.dart';
 //import 'package:app_upeu/ui/beneficiariobloc/beneficiariob_main.dart';
 //import 'package:app_upeu/ui/beneficiariofirebloc/beneficiariof_main.dart';
 //import 'package:covidapp/drawer/feedback_screen.dart';
@@ -63,7 +64,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
-          //screenView = MainBeneficiario();
+          screenView = MainPersona();
         });
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {

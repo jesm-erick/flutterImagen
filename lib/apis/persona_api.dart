@@ -17,17 +17,17 @@ abstract class PersonaApi {
     return PersonaApi(dio);
   }
 
-  @POST("/api/auth/login")
+  @POST("/apiv1/auth/login")
   Future<TokenModelo> login(@Body() UsuarioModelo usuario);
-  @GET("/api/persona")
+  @GET("/apiv1/persona")
   Future<ResponseModelo> getPersona(@Header("Authorization") String token);
-  @POST("/api/persona")
+  @POST("/apiv1/persona/create")
   Future<ResponseModelo> createPersona(
       @Header("Authorization") String token, @Body() PersonaModelo persona);
-  @DELETE("/api/persona/{id}")
+  @DELETE("/apiv1/persona/{id}")
   Future<ResponseModelo> deletePersona(
       @Header("Authorization") String token, @Path("id") int id);
-  @PATCH("/api/persona/{id}")
+  @PUT("/apiv1/persona/{id}")
   Future<ResponseModelo> updatePersona(@Header("Authorization") String token,
       @Path("id") int id, @Body() PersonaModelo persona);
 }

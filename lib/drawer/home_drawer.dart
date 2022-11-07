@@ -32,12 +32,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
     drawerList = <DrawerList>[
       DrawerList(
         index: DrawerIndex.HOME,
-        labelName: 'Beneficiario',
+        labelName: 'Principal',
         icon: Icon(Icons.home),
       ),
       DrawerList(
         index: DrawerIndex.FeedBack,
-        labelName: 'Beneficiario Bloc',
+        labelName: 'Persona',
         isAssetsImage: true,
         imageName: 'assets/imagen/man-icon.png',
       ),
@@ -107,8 +107,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 
                             child: CircleAvatar(
                               backgroundImage: NetworkImage(
-                                imageUrl==null?"https://icons.iconarchive.com/icons/aha-soft/people/256/user-info-icon.png":imageUrl,
-                              ),
+                                  "https://icons.iconarchive.com/icons/aha-soft/people/256/user-info-icon.png"),
                               radius: 40,
                               backgroundColor: Colors.transparent,
                             ),
@@ -125,7 +124,9 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
                     child: Text(
-                      (name==null?"Anonimo":name) + (" ") + (email==null?"Anomim":email),
+                      (name == null ? "Anonimo" : name) +
+                          (" ") +
+                          (email == null ? "Anomim" : email),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.w600,

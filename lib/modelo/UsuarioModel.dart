@@ -1,33 +1,32 @@
 class UsuarioModelo {
-  String name, email, password;
+  String username, email, password;
 
-  UsuarioModelo({this.name, this.email, this.password});
+  UsuarioModelo({this.username, this.email, this.password});
 
   factory UsuarioModelo.fromJson(Map<String, dynamic> map) {
     return UsuarioModelo(
-      name: map["name"],
+      username: map["username"],
       email: map["email"],
       password: map["password"],
     );
   }
   Map<String, dynamic> toJson() {
-    return {'name': name, 'email': email, 'password': password};
+    return {'username': username, 'email': email, 'password': password};
   }
 }
 
 class TokenModelo {
   String message;
-  String token;
-  TokenModelo({this.message, this.token});
+  String data;
+  TokenModelo({this.message, this.data});
 
-    factory TokenModelo.fromJson(Map<String, dynamic> map) {
+  factory TokenModelo.fromJson(Map<String, dynamic> map) {
     return TokenModelo(
       message: map["message"],
-      token: map["token"],
+      data: map["data"],
     );
   }
   Map<String, dynamic> toJson() {
-    return {'message': message, 'token': token};
+    return {'message': message, 'data': data};
   }
-
 }
