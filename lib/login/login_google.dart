@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image(
-                  image: AssetImage("assets/imagen/logo_upeu.png"),
+                  image: NetworkImage("https://i.pinimg.com/736x/87/5c/37/875c3737563af22174cfa26fe9e8510f.jpg"),
                   height: 200.0),
               //FlutterLogo(size: 150),
               SizedBox(height: 20),
@@ -178,13 +178,13 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             Image(
                 image:
-                NetworkImage("https://w7.pngwing.com/pngs/654/821/png-transparent-swoosh-nike-just-do-it-logo-nike-angle-adidas-symbol-thumbnail.png"),
+                NetworkImage("https://static.vecteezy.com/system/resources/previews/007/407/996/original/user-icon-person-icon-client-symbol-login-head-sign-icon-design-vector.jpg"),
                 //AssetImage('assets/imagen/man-icon.png'),
                 height: 35.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
-                'Ingresar VinMenX',
+                'Ingresar',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey,
