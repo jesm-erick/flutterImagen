@@ -39,7 +39,7 @@ class _PersonaApi implements PersonaApi {
     final _data = <String, dynamic>{};
     _data.addAll(persona.toJson() ?? <String, dynamic>{});
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/persona',
+        '/apiv1/persona/create',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',
@@ -104,10 +104,10 @@ PersonaModelo.fromJson(i as Map<String, dynamic>))
     final _data = <String, dynamic>{};
     _data.addAll(persona.toJson() ?? <String, dynamic>{});
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/persona/$id',
+        '/apiv1/persona/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
-            method: 'PATCH',
+            method: 'PUT',
             headers: <String, dynamic>{"Authorization": token},
             extra: _extra,
             baseUrl: baseUrl),

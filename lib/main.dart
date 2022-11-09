@@ -11,10 +11,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO; Implement build
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Upeu",
-      theme: AppTheme.themeData,
-      home: MainLogin()
-    );
+        debugShowCheckedModeBanner: false,
+        title: "Upeu",
+        theme: AppTheme.themeData,
+        home: MainLogin());
   }
 }

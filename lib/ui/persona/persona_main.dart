@@ -1,5 +1,7 @@
 import 'package:app_upeu/apis/persona_api.dart';
 import 'package:app_upeu/comp/TabItem.dart';
+import 'package:app_upeu/ui/persona/persona_edit.dart';
+import 'package:app_upeu/ui/persona/persona_form.dart';
 import 'package:app_upeu/util/tokenUtil.dart';
 //import 'package:app_upeu/ui/persona/beneficiario_edit.dart';
 //import 'package:app_upeu/ui/persona/beneficiario_form.dart';
@@ -89,10 +91,10 @@ class _PersonaUIState extends State<PersonaUI> {
                   //final producto=new ModeloProductos();
                   //formDialog(context, producto);
                   print("Si funciona 2");
-                  /*Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PersonaForm()),
-                  ).then(onGoBack);*/
+                  ).then(onGoBack);
                 },
                 child: Icon(Icons.add_box_sharp),
               ),
@@ -179,12 +181,12 @@ class _PersonaUIState extends State<PersonaUI> {
                                   icon: Icon(Icons.edit),
                                   color: AppTheme.themeData.colorScheme.primary,
                                   onPressed: () {
-                                    /*Navigator.push(
+                                    Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => PersonaFormEdit(
                                               modelP: personax)),
-                                    ).then(onGoBack);*/
+                                    ).then(onGoBack);
                                   }),
                               IconButton(
                                   icon: Icon(Icons.delete),

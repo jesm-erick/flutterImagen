@@ -25,6 +25,7 @@ List<Map<String, String>> lista = [
 class _PersonaFormEditState extends State<PersonaFormEdit> {
   String _dni;
   String _nombre;
+  String ap_p;
   String _telefono;
   int _edad;
   String _fecha_nac;
@@ -89,6 +90,23 @@ class _PersonaFormEditState extends State<PersonaFormEdit> {
     );
   }
 
+  Widget _buildAp_P() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'Apellido Paterno:'),
+      keyboardType: TextInputType.text,
+      initialValue: modelP.ap_paterno,
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'Apellido paterno requerido!';
+        }
+        return null;
+      },
+      onSaved: (String value) {
+        ap_p = value;
+      },
+    );
+  }
+
   Widget _buildTelefono() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'Num. Telefono:'),
@@ -148,6 +166,7 @@ class _PersonaFormEditState extends State<PersonaFormEdit> {
                     /*_buildName(),*/
                     _buildDni(),
                     _buildNombre(),
+                    _buildAp_P(),
                     _buildTelefono(),
                     _buildGenero(),
                     Padding(
@@ -174,6 +193,7 @@ class _PersonaFormEditState extends State<PersonaFormEdit> {
                                 mp.nombre = _nombre;
                                 mp.dni = _dni;
                                 mp.telefono = _telefono;
+                                mp.ap_paterno = ap_p;
                                 //mp.edad = _edad;
                                 //mp.fechaNac = _fecha_nac;
                                 mp.genero = _genero;
