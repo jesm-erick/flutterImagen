@@ -170,14 +170,14 @@ class _PersonaUIState extends State<PersonaUI> {
                               ),
                             ]),
                         leading: CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/imagen/man-icon.png"),
-                        ),
+                            backgroundImage: NetworkImage(
+                                "https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png")),
                         trailing: Row(mainAxisSize: MainAxisSize.min,
                             //mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               IconButton(
                                   icon: Icon(Icons.edit),
+                                  color: AppTheme.themeData.colorScheme.primary,
                                   onPressed: () {
                                     /*Navigator.push(
                                       context,
@@ -216,14 +216,14 @@ class _PersonaUIState extends State<PersonaUI> {
                                         }).then((value) {
                                       if (value.toString() == "Success") {
                                         print(personax.id);
-                                        /*
-                                        Provider.of<BeneficiarioApi>(context,
+
+                                        Provider.of<PersonaApi>(context,
                                                 listen: false)
-                                            .deleteBeneficiario(personax.id)
+                                            .deletePersona(personax.id)
                                             .then((value) => onGoBack(value));
                                         //var onGoBack = onGoBack;
                                         //BlocProvider.of<ProductosBloc>(context).add(DeleteProductoEvent(producto: state.productosList[index]));
-                                        */
+
                                       }
                                     });
                                   })
