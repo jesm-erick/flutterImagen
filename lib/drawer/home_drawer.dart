@@ -43,7 +43,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
       ),
       DrawerList(
         index: DrawerIndex.Help,
-        labelName: 'Beneficiario BlocFire',
+        labelName: 'Persona Bloc',
         icon: Icon(Icons.help),
       ),
       DrawerList(

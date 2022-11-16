@@ -13,6 +13,7 @@ import 'package:app_upeu/ui/persona/persona_main.dart';
 //import 'package:covidapp/drawer/home_screen.dart';
 //import 'package:covidapp/drawer/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:app_upeu/ui/personab/persona_main.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
   @override
@@ -69,6 +70,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
           // screenView = MainBeneficiarioFire();
+          screenView = MainPersonaB();
         });
       } else {
         //do in your way......
