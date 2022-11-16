@@ -38,6 +38,33 @@ class PersonaModelo {
     };
   }
 
+  Map<String, dynamic> toMap() {
+    var map = Map<String, dynamic>();
+    map["dni"] = dni;
+    map["nombre"] = nombre;
+    map["ap_paterno"] = ap_paterno;
+    map["ap_materno"] = ap_materno;
+    map["genero"] = genero;
+    map["telefono"] = telefono;
+    map["correo"] = correo;
+    // if (id != null) {
+    //   map["id"] = id;
+    // }
+    return map;
+  }
+
+  PersonaModelo.fromObject(dynamic o) {
+    this.id = o["id"];
+    this.dni = o["dni"];
+    this.nombre = o["nombre"];
+    this.ap_paterno = o["ap_paterno"];
+    this.ap_materno = o["ap_materno"];
+    this.genero = o["genero"];
+    this.telefono = o["telefono"];
+    this.correo = o["correo"];
+    //this.edad = int.tryParse(o["edad"].toString());
+  }
+
   @override
   String toString() {
     return 'PersonaModelo{id: $id,dni: $dni, nombre: $nombre, apellido_paterno:$ap_paterno,apellido_materno: $ap_materno, telefono: $telefono, genero: $genero, correo:$correo}';
@@ -64,6 +91,22 @@ class ResponseModelo {
     return {
       'data': data,
       'message': message,
+    };
+  }
+}
+
+@JsonSerializable()
+class MsgModelo {
+  String mensaje;
+
+  MsgModelo({this.mensaje});
+  factory MsgModelo.fromJson(Map<String, dynamic> map) {
+    return MsgModelo(mensaje: map["mensaje"]);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'mensaje': mensaje,
     };
   }
 }

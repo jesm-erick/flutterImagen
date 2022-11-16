@@ -208,7 +208,7 @@ class _PersonaFormState extends State<PersonaFormB> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("Form. Reg. Persona"),
+        title: const Text("Form. Reg. Persona block"),
         automaticallyImplyLeading: false,
         centerTitle: true,
       ),

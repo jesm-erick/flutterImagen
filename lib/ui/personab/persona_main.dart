@@ -3,6 +3,7 @@ import 'package:app_upeu/comp/TabItem.dart';
 import 'package:app_upeu/repository/PersonaRepository.dart';
 import 'package:app_upeu/ui/persona/persona_edit.dart';
 import 'package:app_upeu/ui/persona/persona_form.dart';
+import 'package:app_upeu/ui/personab/persona_form.dart';
 import 'package:flutter/material.dart';
 import 'package:app_upeu/modelo/PersonaModel.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,7 +80,7 @@ class _PersonaUIState extends State<PersonaUI> {
       home: Scaffold(
         appBar: new AppBar(
           title: Text(
-            'Lista de Personas Bloc',
+            'Lista de Personas B',
           ),
           automaticallyImplyLeading: false,
           centerTitle: true,
@@ -105,7 +106,7 @@ class _PersonaUIState extends State<PersonaUI> {
                   print("Si funciona 2");
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PersonaForm()),
+                    MaterialPageRoute(builder: (context) => PersonaFormB()),
                   ).then(onGoBack);
                 },
                 child: Icon(Icons.add_box_sharp),
