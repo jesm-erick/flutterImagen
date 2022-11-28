@@ -72,21 +72,15 @@ class _PersonaApi implements PersonaApi {
   }
 
   @override
-  getPersona(token) async {
+  getPersona() async {
     final prefs = await SharedPreferences.getInstance();
-//var tokenx = prefs.getString("token");
-    ArgumentError.checkNotNull(token, "token");
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/apiv1/persona/all',
+        '/figuras',
         queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{"Authorization": token},
-            extra: _extra,
-            baseUrl: baseUrl),
+        options: RequestOptions(method: 'GET', extra: _extra, baseUrl: baseUrl),
         data: _data);
 /*var value = _result.data.map((dynamic i) =>
 PersonaModelo.fromJson(i as Map<String, dynamic>))

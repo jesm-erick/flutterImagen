@@ -105,7 +105,7 @@ class _PersonaUIState extends State<PersonaUI> {
         //backgroundColor: AppTheme.nearlyWhite,
         body: FutureBuilder<List<PersonaModelo>>(
           future: Provider.of<PersonaApi>(context, listen: true)
-              .getPersona(TokenUtil.TOKEN)
+              .getPersona()
               .then((value) => value.data),
           builder: (BuildContext context,
               AsyncSnapshot<List<PersonaModelo>> snapshot) {

@@ -110,3 +110,42 @@ class MsgModelo {
     };
   }
 }
+
+// imagenes
+
+class ImagenModelo {
+  String id, name, image;
+  ImagenModelo({this.id, this.name, this.image});
+  factory ImagenModelo.fromJson(Map<String, dynamic> map) {
+    return ImagenModelo(
+      id: map['id'],
+      name: map['name'],
+      image: map['image'],
+    );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'image': image,
+    };
+  }
+
+  Map<String, dynamic> toMap() {
+    var map = Map<String, dynamic>();
+    map["name"] = name;
+    map["image"] = image;
+    return map;
+  }
+
+  ImagenModelo.fromObject(dynamic o) {
+    this.id = o["id"];
+    this.name = o["name"];
+    this.image = o["image"];
+  }
+
+  @override
+  String toString() {
+    return 'ImagenModelo{id: $id,name: $name, image: $image}';
+  }
+}

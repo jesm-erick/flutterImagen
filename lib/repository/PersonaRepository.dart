@@ -19,9 +19,7 @@ class PersonaRepository {
 
   Future<List<PersonaModelo>> getPersona() async {
     if (await isConected()) {
-      return await personaApi
-          .getPersona(TokenUtil.TOKEN)
-          .then((value) => value.data);
+      return await personaApi.getPersona().then((value) => value.data);
     } else {
       return personaLocate.getAllPersona();
     }
